@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ public class Splash_screen_activity extends Activity {
 	boolean splashIsPaused = false;
 	Intent intent;
 	Timer timer = new Timer();
+	private RetainedFragment timerFragment;
 
 	class turnTask extends TimerTask {
 

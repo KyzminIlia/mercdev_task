@@ -17,10 +17,12 @@ public final class R {
     public static final class id {
         public static final int SplashScreenIV=0x7f060001;
         public static final int main_screen_list_view=0x7f060000;
+        public static final int retained_fragment=0x7f060002;
     }
     public static final class layout {
         public static final int main_screen_activity=0x7f030000;
-        public static final int splash_screen_b_activity=0x7f030001;
+        public static final int retained_fragment=0x7f030001;
+        public static final int splash_screen_b_activity=0x7f030002;
     }
     public static final class string {
         public static final int main_screen_name=0x7f040001;

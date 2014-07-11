@@ -22,7 +22,7 @@ public class MainScreenActivity extends Activity {
 		ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, listItem);
 		mainScreenLV.setAdapter(listViewAdapter);
-		SplashScreenActivity.splashScreenActivity.finish();
+
 	}
 
 	@Override

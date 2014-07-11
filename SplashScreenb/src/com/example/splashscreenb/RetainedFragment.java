@@ -17,7 +17,9 @@ import android.widget.Toast;
 public class RetainedFragment extends Fragment {
 	final public String LOG_TAG = "Retained fragment";
 	boolean splashIsDestroy = false;
+	public static boolean empty = false;
 	Timer timer;
+
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
@@ -31,11 +33,16 @@ public class RetainedFragment extends Fragment {
 		Log.d(LOG_TAG, "Created fragment");
 		Handler h = new Handler() {
 			public void handleMessage(android.os.Message msg) {
-				if (!splashIsDestroy) {
-					startActivity(new Intent(getActivity(),
-							MainScreenActivity.class));
-					Log.d(LOG_TAG, "Main started");
-				}
+				if (!splashIsDestroy)
+					if (getActivity() == null)
+						empty = true;
+					else {
+						startActivity(new Intent(getActivity(),
+								MainScreenActivity.class));
+						Log.d(LOG_TAG, "Main started");
+						getActivity().finish();
+					}
+
 			};
 		};
 		h.sendEmptyMessageDelayed(0, 2000);

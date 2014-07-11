@@ -1,20 +1,20 @@
 package com.example.splashscreenb;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 public class RetainedFragment extends Fragment {
-	final String LOG_TAG = "MyLog";
+	final public String LOG_TAG = "Retained fragment";
 	boolean splashIsDestroy = false;
-	Intent intent;
 	Timer timer;
 
 	@Override
@@ -24,27 +24,23 @@ public class RetainedFragment extends Fragment {
 		Log.d(LOG_TAG, "splash destroyed");
 	}
 
-	class turnTask extends TimerTask {
-		@Override
-		public void run() {
-			if (!splashIsDestroy) {
-				startActivity(intent);
-				Log.d(LOG_TAG, "Main started");
-				getActivity().finish();
-				Log.d(LOG_TAG, "Splash finish");
-				timer.cancel();
-				Log.d(LOG_TAG, "timer cancelled");
-			}
-		}
-
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		timer = new Timer();
-		timer.schedule(new turnTask(), 2000);
-		Log.d(LOG_TAG, "Timer started");
+		Log.d(LOG_TAG, "Created fragment");
+		Handler h = new Handler() {
+			public void handleMessage(android.os.Message msg) {
+				if (!splashIsDestroy){
+				startActivity(new Intent(getActivity(),
+						MainScreenActivity.class));
+				Log.d(LOG_TAG, "Main started");
+				getActivity().finish();
+				Log.d(LOG_TAG, "Splash finish");
+				}	
+			};
+		};
+		h.sendEmptyMessageDelayed(0, 2000);
+		Log.d(LOG_TAG, "Handler  started");
 
 	}
 
@@ -52,7 +48,6 @@ public class RetainedFragment extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		Log.d(LOG_TAG, "Activity created");
-		intent = new Intent(getActivity(), Main_screen_activity.class);
 
 	}
 

@@ -13,7 +13,7 @@
         android:label="@string/splash_screen_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="Splash_screen_activity"
+            android:name="SplashScreenActivity"
             android:label="@string/splash_screen_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="Main_screen_activity"
+            android:name="MainScreenActivity"
             android:label="@string/main_screen_name" >
         </activity>
     </application>

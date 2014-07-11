@@ -2,7 +2,9 @@ package com.example.splashscreenb;
 
 import java.util.Timer;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -16,7 +18,6 @@ public class RetainedFragment extends Fragment {
 	final public String LOG_TAG = "Retained fragment";
 	boolean splashIsDestroy = false;
 	Timer timer;
-
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
@@ -30,13 +31,11 @@ public class RetainedFragment extends Fragment {
 		Log.d(LOG_TAG, "Created fragment");
 		Handler h = new Handler() {
 			public void handleMessage(android.os.Message msg) {
-				if (!splashIsDestroy){
-				startActivity(new Intent(getActivity(),
-						MainScreenActivity.class));
-				Log.d(LOG_TAG, "Main started");
-				getActivity().finish();
-				Log.d(LOG_TAG, "Splash finish");
-				}	
+				if (!splashIsDestroy) {
+					startActivity(new Intent(getActivity(),
+							MainScreenActivity.class));
+					Log.d(LOG_TAG, "Main started");
+				}
 			};
 		};
 		h.sendEmptyMessageDelayed(0, 2000);

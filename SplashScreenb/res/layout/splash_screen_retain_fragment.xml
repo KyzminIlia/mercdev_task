@@ -10,7 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1" >
-
     </TableRow>
 
     <TableRow
@@ -25,7 +24,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/mercdev" />
-
     </TableRow>
 
     <TableRow
@@ -39,7 +37,6 @@
             android:layout_width="match_parent"
             android:layout_gravity="top|center_horizontal"
             android:text="@string/splash_screen_tv_text" />
-
     </TableRow>
 
 </TableLayout>

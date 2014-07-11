@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +17,12 @@ import android.widget.Toast;
 public class RetainedFragment extends Fragment {
 	final public String LOG_TAG = "Retained fragment";
 	boolean splashIsDestroy = false;
-	public static boolean empty = false;
+	boolean nullActivity = false;
 	Timer timer;
-
+	
+	public boolean needFinish(){
+		return nullActivity;
+	}
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
@@ -35,7 +38,7 @@ public class RetainedFragment extends Fragment {
 			public void handleMessage(android.os.Message msg) {
 				if (!splashIsDestroy)
 					if (getActivity() == null)
-						empty = true;
+						nullActivity = true;
 					else {
 						startActivity(new Intent(getActivity(),
 								MainScreenActivity.class));

@@ -8,15 +8,15 @@ import android.widget.ListView;
 
 public class MainScreenActivity extends Activity {
 	String[] listItem = new String[20];
-	final public String LOG_TAG = "Main screen";
+	final public String LOG_TAG = this.getClass().getSimpleName();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_screen_activity);
+		setContentView(R.layout.a_main);
 		Log.d(LOG_TAG, "Main activity created");
 		ListView mainScreenLV = (ListView) findViewById(R.id.main_screen_list_view);
-		Log.d(LOG_TAG, "View finded");
+		Log.d(LOG_TAG, "View was found");
 		for (int i = 0; i < 20; i++)
 			listItem[i] = "Item " + (i + 1);
 		ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(this,

@@ -1,20 +1,20 @@
 package com.example.splashscreenb;
 
-import java.util.Timer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.app.Fragment;
+
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 public class RetainedFragment extends Fragment {
-	final public String LOG_TAG = "Retained fragment";
+	final public String LOG_TAG = this.getClass().getSimpleName();
 	boolean splashIsDestroy = false;
 	boolean nullActivity = false;
-	Timer timer;
+
 
 	public boolean needFinish() {
 		return nullActivity;
@@ -61,7 +61,7 @@ public class RetainedFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
-		View v = inflater.inflate(R.layout.splash_screen_retain_fragment, null);
+		View v = inflater.inflate(R.layout.f_splash, null);
 		setRetainInstance(true);
 		Log.d(LOG_TAG, "View created");
 		return v;

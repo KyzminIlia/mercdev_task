@@ -1,10 +1,7 @@
 package com.example.splashscreenb;
 
 import java.util.Timer;
-
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Fragment;
@@ -12,17 +9,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 public class RetainedFragment extends Fragment {
 	final public String LOG_TAG = "Retained fragment";
 	boolean splashIsDestroy = false;
 	boolean nullActivity = false;
 	Timer timer;
-	
-	public boolean needFinish(){
+
+	public boolean needFinish() {
 		return nullActivity;
 	}
+
 	@Override
 	public void onDestroy() {
 		super.onDestroy();

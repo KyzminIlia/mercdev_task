@@ -47,6 +47,7 @@ public class RetainedFragment extends Fragment {
 		};
 		h.sendEmptyMessageDelayed(0, 2000);
 		Log.d(LOG_TAG, "Handler  started");
+		Log.d(LOG_TAG,"wait 2 sec");
 
 	}
 

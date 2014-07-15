@@ -1,2 +1,4 @@
-mercdev_task
+Splash screen
+Mercury development
+
 ============
